@@ -9,7 +9,6 @@ pipeline {
         }
       }
 
-
       stage('Unit Tests - JUnit and Jacoco') {
         steps {
           sh "mvn test"
@@ -21,6 +20,7 @@ pipeline {
           }
         }
       }
+      
       stage('Docker Build and Push') {
         steps {
           withDockerRegistry([credentialsId: "docker-hub", url: ""]) {
